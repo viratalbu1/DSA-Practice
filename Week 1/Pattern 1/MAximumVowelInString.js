@@ -33,56 +33,56 @@
 // s consists of lowercase English letters.
 // 1 <= k <= s.length
 
-function isVowel(char){
-    const vowel = ['a','e','i','o','u']
-    return vowel.includes(char)
+function isVowel(char) {
+  const vowel = ['a', 'e', 'i', 'o', 'u']
+  return vowel.includes(char)
 }
 
-function MaxVowel(str,k){
+function MaxVowel(str, k) {
 
-    // same like the average
+  // same like the average
 
-    let maxCount = 0;
-    str.substr(0,k).split('').forEach((item)=>{
-        if(isVowel(item)) maxCount++;
-    })
-    console.log('Count',maxCount)
+  let maxCount = 0;
+  str.substr(0, k).split('').forEach((item) => {
+    if (isVowel(item)) maxCount++;
+  })
+  console.log('Count', maxCount)
 
-    let currentIndex = k
-    let startIndex = 1
+  let currentIndex = k
+  let startIndex = 1
 
-    let count = maxCount;
-    while(currentIndex < str.length){
+  let count = maxCount;
+  while (currentIndex < str.length) {
 
 
 
-        if(isVowel(str[currentIndex])){
-            count++
-        }
-
-        if(isVowel(str[startIndex-1])){
-            count--;
-        }
-
-        if(maxCount<count){
-            maxCount = count
-        }
-
-        currentIndex++;
-        startIndex++;
-
+    if (isVowel(str[currentIndex])) {
+      count++
     }
 
-    return maxCount
+    if (isVowel(str[startIndex - 1])) {
+      count--;
+    }
+
+    if (maxCount < count) {
+      maxCount = count
+    }
+
+    currentIndex++;
+    startIndex++;
+
+  }
+
+  return maxCount
 
 
 }
 
-function main(){
+function main() {
 
-    const str = 'abciiidef'
-    const k = 3
-    console.log(MaxVowel(str,k))
+  const str = 'abciiidef'
+  const k = 3
+  console.log(MaxVowel(str, k))
 }
 
 main();
